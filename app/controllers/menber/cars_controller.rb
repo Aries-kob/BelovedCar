@@ -1,4 +1,4 @@
-class Menbers::CarController < ApplicationController
+class Menber::CarController < ApplicationController
   def new
   end
   

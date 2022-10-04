@@ -1,65 +1,45 @@
 Rails.application.routes.draw do
-  namespace :menbers do
-    get 'rooms/new'
-    get 'rooms/create'
-    get 'rooms/index'
-    get 'rooms/show'
-    get 'rooms/edit'
-    get 'rooms/update'
-    get 'rooms/destroy'
+  root to: "menber/homes#top"
+  
+  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+  swssions: "admin/sessions"
+  }
+  
+  devise_for :menbers,skip: [:passwords], controllers: {
+    registrations: "menber/registrations",
+    sessions: "menber/sessions"
+  }
+  
+  namespace :menber do
+    resources :rooms
   end
-  namespace :menbers do
-    get 'posts/new'
-    get 'posts/create'
-    get 'posts/index'
-    get 'posts/show'
-    get 'posts/edit'
-    get 'posts/update'
-    get 'posts/destroy'
-  end
-  namespace :admin do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  namespace :menbers do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  namespace :menbers do
-    get 'favorites/create'
-    get 'favorites/destroy'
-  end
-  namespace :menbers do
-    get 'post_comments/create'
-    get 'post_comments/destroy'
-  end
-  namespace :menbers do
-    get 'car/new'
-    get 'car/index'
-    get 'car/show'
-    get 'car/edit'
-    get 'car/update'
-    get 'car/destroy'
+  namespace :menber do
+    resources :posts
   end
   namespace :admin do
-    get 'cars/index'
-    get 'cars/show'
-    get 'cars/edit'
-    get 'cars/update'
+    root to: "homes#top"
+  end
+  namespace :menber do
+    root to: "homes#top"
+    get 'homes/about', as: 'about'
+  end
+  namespace :menber do
+    resources :favorites, only: [:create, :destroy]
+  end
+  namespace :menber do
+    resources :post_comments, only: [:create, :destroy]
+  end
+  namespace :menber do
+    resources :cars 
   end
   namespace :admin do
-    get 'genres/create'
-    get 'genres/indexw'
-    get 'genres/edit'
-    get 'genres/update'
+    resources :cars, only: [:index, :show, :edit, :update]
   end
   namespace :admin do
-    get 'menbers/index'
-    get 'menbers/show'
-    get 'menbers/edit'
-    get 'menbers/update'
+    resources :genres, only: [:create, :index, :edit, :update]
   end
-  devise_for :menbers
-  devise_for :admins
+  namespace :admin do
+    resources :menbers, only: [:index, :show, :edit, :update]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
