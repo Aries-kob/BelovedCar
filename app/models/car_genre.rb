@@ -1,0 +1,2 @@
+class CarGenre < ApplicationRecord
+end

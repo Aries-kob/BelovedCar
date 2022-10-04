@@ -1,0 +1,2 @@
+module Menbers::ChatsHelper
+end

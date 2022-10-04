@@ -1,0 +1,2 @@
+module Menbers::FavoritesHelper
+end
