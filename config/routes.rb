@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   }
   
   namespace :menber do
+    resources :menbers
+  end  
+  namespace :menber do
     resources :rooms
   end
   namespace :menber do
