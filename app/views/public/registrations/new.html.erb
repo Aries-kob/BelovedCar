@@ -1,13 +1,19 @@
 <h2>Sign up</h2>
 
 <%= form_with model: @menber, url: menber_registration_path do |f| %>
-  <%= render "menber/shared/error_messages", resource: resource %>
+  <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :name, '名前' %>
-    <%=f.textfield :name, autfocus: true, autocomplete "name" %>
+    <%= f.text_field :name, autfocus: true, autocomplete: "name" %>
   </div>
   <div class="field">
+    <%= f.label :nickname, 'ニックネーム' %>
+    <%= f.text_field :nickname, autfocus: true, autocomplete: "nickname" %>
+  </div>
+  <div class="field">
+    <%= f.label :area, '住んでる地域' %>
+    <%= f.select :area, Menber.areas.keys, {}, {class: 'hoge'} %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
@@ -32,4 +38,4 @@
   </div>
 <% end %>
 
-<%= render "menber/shared/links" %>
+<%= render "public/shared/links" %>

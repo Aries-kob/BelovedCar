@@ -5,15 +5,15 @@
         <% if admin_signed_in? %>
           <li><%= link_to "会員一覧", admin_menbers_path, class: "btn border roundbed ml-5" %></li>
           <li><%= link_to "ジャンル", admin_genres_path, class: "btn border roundbed ml-5" %></li>
-          <li><%= link_to "ログアウト", destroy_admin_session_path, "btn border roundbed ml-5" %></li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn border roundbed ml-5" %></li>
         <% elsif menber_signed_in? %>
-          <li><%= link_to "マイページ", menber_menber_path(current_menber), class: "btn border roundbed ml-5" %> </li>
-          <li><%= link_to "愛車一覧", menber_cars_path, class: "btn border roundbed ml-5" %></li>
-          <li><%= link_to "投稿一覧",menber_posts_path, class: "btn border roundbed ml-5" %></li>
-          <li><%= link_to "ログアウト",destroy_menber_session_path, class: "btn border roundbed ml-5" %></li>
+          <li><%= link_to "マイページ", public_menber_path(current_menber), class: "btn border roundbed ml-5" %> </li>
+          <li><%= link_to "愛車一覧", public_cars_path, class: "btn border roundbed ml-5" %></li>
+          <li><%= link_to "投稿一覧", public_posts_path, class: "btn border roundbed ml-5" %></li>
+          <li><%= link_to "ログアウト",destroy_menber_session_path,method: :delete, class: "btn border roundbed ml-5" %></li>
         <% else %>
-           <li><%= link_to "愛車一覧", menber_cars_path, class: "btn border roundbed ml-5" %></li>
-           <li><%= link_to "投稿一覧", menber_posts_path, class: "btn border roundbed ml-5" %></li>
+           <li><%= link_to "愛車一覧", public_cars_path, class: "btn border roundbed ml-5" %></li>
+           <li><%= link_to "投稿一覧", public_posts_path, class: "btn border roundbed ml-5" %></li>
            <li><%= link_to "ログイン", new_menber_session_path, class: "btn border roundbed ml-5" %></li>
            <li><%= link_to "新規登録", new_menber_registration_path, class: "btn border roundbed ml-5" %></li>
         <% end %>   

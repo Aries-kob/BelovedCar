@@ -1,0 +1,27 @@
+<div class= 'container'>
+  <table class= 'table'>
+    <thead>
+      <tr>   
+        <th>画像</th>
+        <th>車名</th>
+        <th>所有者</th>
+      </tr>    
+    </thead>
+    <tbody>
+      <% @cars.each do |car| %>
+        <tr>
+          <td><%= link_to(car.id) do %>
+            <%= image_tag car.car_image %>
+            <% end %>
+        </td>
+        <td>
+          <%= car.name %>    
+        </td>
+        <td>
+          <%= link_to car.menber.name, public_menber_path(car.menber.id) %>   
+        </td>
+        </tr>
+      <% end %>    
+    </tbody>
+  </table>
+</div>

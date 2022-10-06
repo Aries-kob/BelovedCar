@@ -1,38 +1,38 @@
 Rails.application.routes.draw do
-  root to: "menber/homes#top"
+  root to: "public/homes#top"
   
-  devise_for :admins, skip: [:registrations, :passwords], controllers: {
-  swssions: "admin/sessions"
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+  sessions: "admin/sessions"
   }
   
   devise_for :menbers,skip: [:passwords], controllers: {
-    registrations: "menber/registrations",
-    sessions: "menber/sessions"
+    registrations: "public/registrations",
+    sessions: "public/sessions"
   }
   
-  namespace :menber do
+  namespace :public do
     resources :menbers
   end  
-  namespace :menber do
+  namespace :public do
     resources :rooms
   end
-  namespace :menber do
+  namespace :public do
     resources :posts
   end
   namespace :admin do
     root to: "homes#top"
   end
-  namespace :menber do
+  namespace :public do
     root to: "homes#top"
     get 'homes/about', as: 'about'
   end
   namespace :menber do
     resources :favorites, only: [:create, :destroy]
   end
-  namespace :menber do
+  namespace :public do
     resources :post_comments, only: [:create, :destroy]
   end
-  namespace :menber do
+  namespace :public do
     resources :cars 
   end
   namespace :admin do

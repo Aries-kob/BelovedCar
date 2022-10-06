@@ -1,4 +1,4 @@
-class Menber::RoomsController < ApplicationController
+class Public::PostsController < ApplicationController
   def new
   end
 
