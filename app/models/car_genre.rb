@@ -1,5 +1,5 @@
 class CarGenre < ApplicationRecord
     
-    belong_to :car
-    belong_to :genre
+    belongs_to :car
+    belongs_to :genre
 end

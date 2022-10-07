@@ -1,2 +1,16 @@
-<h1>Menbers::Car#edit</h1>
-<p>Find me in app/views/menbers/car/edit.html.erb</p>
+<div class="container">
+  <div>
+    <h6>愛車編集</h6>
+    <% if @car.errors.any? %>
+      <ul>
+        <% @car.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= form_with model: @car, url: public_car_path, method: :patch do |f| %>
+    <table class= "table">
+        
+    </table>
+  </div>     
+</div>

@@ -5,7 +5,9 @@ class Public::CarsController < ApplicationController
   end
   
   def create
-    @car = Car.new(car_parms)
+    @car = Car.new(car_params)
+    @menber = current_menber
+    @car.menber_id = current_menber.id
     @genrs = Genre.all
     if @car.save
       redirect_to public_car_path(@car.id)
@@ -20,6 +22,7 @@ class Public::CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+    @menber = Menber.find(@car.menber.id)
   end
 
   def edit
@@ -40,6 +43,6 @@ class Public::CarsController < ApplicationController
   
   private
   def car_params
-    params.require(:car).permit(:menber_id, :name, :introduction, :image)
+    params.require(:car).permit(:menber_id, :name, :introduction, :car_image, :genre_ids [])
   end  
 end

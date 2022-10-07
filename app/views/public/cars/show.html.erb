@@ -1,2 +1,21 @@
-<h1>Menbers::Car#show</h1>
-<p>Find me in app/views/menbers/car/show.html.erb</p>
+<div class= "container">
+  <h5>愛車紹介</h5>
+  <%= image_tag @car.get_car_image(500,500) %>
+  <table clas= "table">
+    <tr>
+      <td>車名</td>
+      <td><%= @car.name %></td>
+    </tr>
+    <tr>
+      <td>紹介</td>
+      <td><%= @car.introduction %></td>
+    </tr>
+    <tr>
+    <td>ジャンル</td>
+    <td></td>
+    </tr>
+  </table>
+  <% if menber_signed_in? && @menber == current_menber %>
+    <%= link_to "編集する", edit_public_car_path, class: "btn btn-primary" %>
+  <% end %>  
+</div>

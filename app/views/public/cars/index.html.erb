@@ -10,8 +10,9 @@
     <tbody>
       <% @cars.each do |car| %>
         <tr>
-          <td><%= link_to(car.id) do %>
-            <%= image_tag car.car_image %>
+          <td>
+            <%= link_to public_car_path(car.id) do %>
+              <%= image_tag car.car_image %>
             <% end %>
         </td>
         <td>

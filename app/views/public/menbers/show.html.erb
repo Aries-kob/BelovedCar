@@ -1,4 +1,42 @@
 <div class= "container">
   <h5>マイページ</h5>
-  
+  <%= image_tag @menber.get_profile_image(100,100) %>
+  <table class= "table">
+    <tr>
+      <td>ニックネーム</td>
+      <td><%= @menber.nickname %></td>
+    </tr>
+    <tr>
+      <td>自己紹介</td>
+      <td><%= @menber.introduction %></td>
+    </tr>
+    <tr>
+      <td>住んでる地域</td>
+      <td><%= @menber.area %></td>
+    </tr>
+    <tr></tr>
+  </table>
+  <table>
+    <thead>
+      <tr>
+        <th>画像</th>
+        <th>名前</th>
+        <th></th>
+      </tr>      
+    </thead>
+    <% @cars.each do |car| %>
+      <tbody>
+        <tr>
+          <td>
+            <%= link_to public_car_path(car.id) do %>
+              <%= image_tag car.get_car_image(100,100) %>
+            <% end %>
+          </td>  
+          <td><%= car.name %></td>  
+          <td><%= link_to "編集する", edit_public_car_path, class: "btn btn-success" %></td>
+        </tr>
+      </tbody>
+    <% end %>  
+  </table>
+  <%= link_to "登録する", new_public_car_path, class: "btn btn-primary" %>
 </div>
