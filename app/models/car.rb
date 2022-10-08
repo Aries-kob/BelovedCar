@@ -1,7 +1,7 @@
 class Car < ApplicationRecord
     has_one_attached :car_image
-    has_many :car_genres_relations, dependent: :destroy
-    has_many :genres, through: :car_genres_relations
+    has_many :car_genre_relations, dependent: :destroy
+    has_many :genres, through: :car_genre_relations
     belongs_to :menber, dependent: :destroy
     
     validates :car_image, presence: true

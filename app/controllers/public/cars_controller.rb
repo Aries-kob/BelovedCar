@@ -42,7 +42,13 @@ class Public::CarsController < ApplicationController
   end
   
   private
+  
   def car_params
-    params.require(:car).permit(:menber_id, :name, :introduction, :car_image, :genre_ids [])
-  end  
+    params.require(:car).permit(:menber_id, :name, :introduction, :car_image, genre_ids: [])
+  end
+  
+  def article_params
+    params.require(:article).permit(:name, genre_ids: [])
+  end
+  
 end

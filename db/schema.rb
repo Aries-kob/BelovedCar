@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2022_10_07_021106) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "car_genres", force: :cascade do |t|
+  create_table "car_genre_relations", force: :cascade do |t|
     t.integer "car_id", null: false
     t.integer "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false

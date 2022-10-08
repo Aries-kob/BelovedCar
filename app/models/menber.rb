@@ -6,6 +6,7 @@ class Menber < ApplicationRecord
   
   has_one_attached :profile_image
   has_many :cars, dependent: :destroy
+  has_many :posts, dependent: :destroy
   
   
   def get_profile_image(width, height)

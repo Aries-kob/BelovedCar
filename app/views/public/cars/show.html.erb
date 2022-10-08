@@ -12,7 +12,9 @@
     </tr>
     <tr>
     <td>ジャンル</td>
-    <td></td>
+    <td>
+      <%= @car.genres.pluck(:name).join(',')%>
+    </td>
     </tr>
   </table>
   <% if menber_signed_in? && @menber == current_menber %>

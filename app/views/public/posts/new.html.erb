@@ -1,2 +1,28 @@
-<h1>Menbers::Posts#new</h1>
-<p>Find me in app/views/menbers/posts/new.html.erb</p>
+<div class="container">
+  <h5>投稿フォーム</h5>
+  <div>
+    <% if @post.errors.any? %>
+      <ul class="alert alert-danger" role="alert">
+        <h6 class="alert-heading">
+          <%= @post.errors.count %>件のエラーが発生しました
+        </h6>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= form_with model: @post, url: public_posts_path, method: :post do |f| %>
+      <div class="form-group">
+        <%= f.file_field :post_image, accept: "image/*" %>
+      </div>
+      <div class="form-group">
+         <h6>タイトル</h6>
+        <%= f.text_field :title %>
+      </div>
+      <div class="form-group">
+        <%= f.text_area :introduction, class: "form-control", placeholder:"本文をここに" %>  
+      </div>
+      <%= f.submit '投稿', class: "btn btn-success" %>
+    <% end %>  
+  </div>
+</div>
