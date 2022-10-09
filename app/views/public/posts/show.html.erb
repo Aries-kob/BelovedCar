@@ -1,2 +1,17 @@
-<h1>Menbers::Posts#show</h1>
-<p>Find me in app/views/menbers/posts/show.html.erb</p>
+<h5>投稿詳細</h5>
+<div class="card-list-contaner">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">      
+    <%= image_tag @post.post_image, class:"card-img-top"; %>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-2">
+            <%= image_tag @post.menber.get_profile_image(100,100), class:"mt-3 rounded-circle" %>
+            <%= @post.menber.name %>
+          </div>
+          <div class="col-10">
+            <p class="card-text"><%= @post.introduction %></p>
+          </div>
+        </div>  
+      </div>
+  </div>
+</div>

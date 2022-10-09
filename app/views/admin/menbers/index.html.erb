@@ -1,2 +1,28 @@
-<h1>Admin::Menbers#index</h1>
-<p>Find me in app/views/admin/menbers/index.html.erb</p>
+<div class="container">
+  <h3>会員一覧</h3>
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <td>会員ID</td>
+        <td>画像</td>
+        <td>ニックネーム</td>
+      </tr>    
+    </thead>
+    <tbody>
+      <% @menbers.each do |menber| %>
+        <tr>
+          <td><%= menber.id %></td>
+          <td><%= link_to admin_menber_path(menber.id) do %>
+                <%= image_tag menber.get_profile_image(100,100) %>
+              <% end %>    
+          </td>
+          <td class="text-dark">
+            <%= link_to admin_menber_path(menber.id), class: "text-dark" do %>
+              <%= menber.nickname %>
+            <% end %>  
+          </td>
+        </tr>
+      <% end %>    
+    </tbody>
+  </table>
+</div>

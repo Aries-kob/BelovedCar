@@ -9,8 +9,27 @@
       </ul>
     <% end %>
     <%= form_with model: @car, url: public_car_path, method: :patch do |f| %>
-    <table class= "table">
-        
-    </table>
+      <table class= "table table-borderless">
+        <tr class="form-group">
+          <td>
+            <h6>画像</h6>  
+          </td>
+          <td><%= f.file_field :car_image, accept: "image/*" %></td>
+        </tr>
+        <tr class="form-group">
+          <td>
+            <h6>車名</h6>  
+          </td>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        <tr class="form-group">
+          <td>
+            <h6>説明</h6>  
+          </td>
+          <td><%= f.text_area :introduction %></td>
+        </tr>
+      </table>
+      <%= f.submit '保存する', class: 'btn btn-success' %>
+    <% end %>  
   </div>     
 </div>
