@@ -1,6 +1,11 @@
 <header class="border-bottom border-dark">
   <div class="container">
-    <nav class="navber navbar-expand-lg">
+    <nav class="navber navbar-expand-lg row">
+      <div class="">
+        <%= link_to root_path do %>
+          <%= image_tag 'Beloved_car.jpg', style: "height: 120px; width: 200px;" %>
+        <% end %>
+      </div>  
       <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
           <li><%= link_to "会員一覧", admin_menbers_path, class: "btn border roundbed ml-5" %></li>
