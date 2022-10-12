@@ -1,7 +1,7 @@
 <header class="border-bottom border-dark">
   <div class="container">
     <nav class="navber navbar-expand-lg row">
-      <div class="">
+      <div class="col　log_img">
         <%= link_to root_path do %>
           <%= image_tag 'Beloved_car.jpg', style: "height: 120px; width: 200px;" %>
         <% end %>
@@ -18,10 +18,10 @@
           <li><%= link_to "新規投稿", new_public_post_path, class: "btn border roundbed ml-5" %></li>
           <li><%= link_to "ログアウト",destroy_menber_session_path,method: :delete, class: "btn border roundbed ml-5" %></li>
         <% else %>
-           <li><%= link_to "愛車一覧", public_cars_path, class: "btn border roundbed ml-5" %></li>
-           <li><%= link_to "投稿一覧", public_posts_path, class: "btn border roundbed ml-5" %></li>
-           <li><%= link_to "ログイン", new_menber_session_path, class: "btn border roundbed ml-5" %></li>
-           <li><%= link_to "新規登録", new_menber_registration_path, class: "btn border roundbed ml-5" %></li>
+          <li><%= link_to "愛車一覧", public_cars_path, class: "btn border roundbed ml-5" %></li>
+          <li><%= link_to "投稿一覧", public_posts_path, class: "btn border roundbed ml-5" %></li>
+          <li><%= link_to "ログイン", new_menber_session_path, class: "btn border roundbed ml-5" %></li>
+          <li><%= link_to "新規登録", new_menber_registration_path, class: "btn border roundbed ml-5" %></li>
         <% end %>   
       </ul>
     </nav>  

@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.logo_img {
+  height: 100px; 
+  width: 100px;  
+}
