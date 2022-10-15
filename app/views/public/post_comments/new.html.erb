@@ -1,0 +1,25 @@
+<h6>コメントフォーム</h6>
+<div class="card-list-contaner">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <%= image_tag @post.post_image, class:"card-img-top"; %>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-2">
+            <%= image_tag @post.menber.get_profile_image(100,100), class:"mt-3 rounded-circle" %>
+              <%= @post.menber.name %>
+          </div>
+          <div class="col-10">
+            <p class="card-text"><%= @post.introduction %></p>
+          </div>
+        </div>
+      </div>  
+  </div>
+  <div class="row ml-5">
+    <%= form_with model: @post_comment, url: public_post_post_comments_path, method: :post do |f| %>
+      <div class="form">
+        <%= f.text_area :comment, class: "fprm-control" %>    
+      </div>
+      <%= f.submit 'コメントする', class: "btn btn-sm btn-success" %>
+    <% end %>
+  </div>    
+</div>

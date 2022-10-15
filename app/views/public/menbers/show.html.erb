@@ -1,6 +1,9 @@
 <div class= "container">
   <h5>マイページ</h5>
   <%= image_tag @menber.get_profile_image(100,100) %>
+  <% if @menber == current_menber %>
+    <%= link_to "編集する", edit_public_menber_path, class: "btn btn-success" %>
+  <% end %>  
   <table class= "table">
     <tr>
       <td>ニックネーム</td>

@@ -10,9 +10,13 @@ class Public::MenbersController < ApplicationController
   end
     
   def edit
+    @menber = current_menber
   end
   
   def update
+    @menber = Menber.find(params[:id])
+    @menber.update(menber_params)
+    redirect_to public_menber_path(@menber.id)
   end
   
   def destroy

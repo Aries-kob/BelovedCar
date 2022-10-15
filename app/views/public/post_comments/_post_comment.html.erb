@@ -1,0 +1,30 @@
+<div class="table table-hover table-inverse">
+  <table>    
+    <thead>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>  
+    </thead>
+    <tbody>
+      <% post.post_comments.each do |post_comment| %>
+        <tr>
+          <td>
+            <%= link_to public_menber_path(post_comment.menber) do %>
+              <%= image_tag post_comment.menber.get_profile_image(50,50) %><br>
+              <%= link_to post_comment.menber.name %>
+            <% end %>  
+          </td>
+          <td>
+            <%= post_comment.comment %>    
+          </td>
+          <% if post_comment.menber == current_menber %>
+            <td>
+              <%= link_to '削除する', public_post_post_comments_path(post, post_comment), method: :delete, class: "brn btn-sm btn-danger pull-right" %>  
+            </td>
+          <% end %>    
+        </tr>
+      <% end %>    
+    </tbody>
+  </table>    
+</div>

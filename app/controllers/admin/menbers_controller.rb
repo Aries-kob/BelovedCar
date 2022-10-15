@@ -20,6 +20,6 @@ class Admin::MenbersController < ApplicationController
   end
   
   def menber_params
-    params.require(:menber).permit(:name, :nickname, :introduction, :area, :profile_image) 
+    params.require(:menber).permit(:name, :nickname, :introduction, :area, :status, :profile_image) 
   end  
 end

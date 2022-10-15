@@ -1,0 +1,17 @@
+<div class="container">
+  <H6>掲示板一覧</H6>
+  <div>
+    <%= link_to "掲示板作成", new_public_board_path, class: "btn border" %>
+  </div>
+  <div class="row">
+    <div>
+      <% @boards.each do |board| %>
+        <%= link_to public_menber_path(board.menber.id) do %>
+          <%= image_tag board.menber.get_profile_image(50,50) %>
+        <% end %>
+        <%= board.title %>
+        <%= board.body %>
+      <% end %>    
+    </div>      
+  </div>    
+</div>

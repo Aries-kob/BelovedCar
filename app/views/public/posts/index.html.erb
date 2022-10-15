@@ -19,6 +19,13 @@
             </p>
             <p class="card-text"><%= post.introduction %></p>
           </div>
+          <div class="col">
+            <%= render 'public/favorites/favorite', post: post %>  
+          </div>
+          <div>
+            <%= "#{post.post_comments.count} コメント数  " %>
+            <%=  link_to "💬", new_public_post_post_comments_path(post.id) %>
+          </div>
         </div>    
       </div>
     </div>

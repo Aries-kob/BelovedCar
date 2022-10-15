@@ -12,12 +12,19 @@ Rails.application.routes.draw do
   
   namespace :public do
     resources :menbers
+  end
+  
+  namespace :public do
+    resources :boards, only: [:index, :new, :create]
   end  
   namespace :public do
     resources :rooms
   end
   namespace :public do
-    resources :posts
+    resources :posts do
+     resource :favorites, only: [:create, :destroy]
+     resource :post_comments, only: [:new, :create, :destroy]
+    end 
   end
   namespace :admin do
     root to: "homes#top"
@@ -26,12 +33,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get 'homes/about', as: 'about'
   end
-  namespace :menber do
-    resources :favorites, only: [:create, :destroy]
-  end
-  namespace :public do
-    resources :post_comments, only: [:create, :destroy]
-  end
+
   namespace :public do
     resources :cars 
   end
