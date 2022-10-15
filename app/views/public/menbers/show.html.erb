@@ -1,9 +1,10 @@
 <div class= "container">
-  <h5>マイページ</h5>
-  <%= image_tag @menber.get_profile_image(100,100) %>
   <% if @menber == current_menber %>
-    <%= link_to "編集する", edit_public_menber_path, class: "btn btn-success" %>
+    <h5>マイページ</h5>
+  <% else %>
+    <h5><%= "#{@menber.nickname} さんの詳細ページ" %></h5>
   <% end %>  
+  <%= image_tag @menber.get_profile_image(400,400) %>
   <table class= "table">
     <tr>
       <td>ニックネーム</td>
@@ -19,7 +20,10 @@
     </tr>
     <tr></tr>
   </table>
-  <table>
+  <% if @menber == current_menber %>
+    <%= link_to "編集する", edit_public_menber_path, class: "btn btn-success" %>
+  <% end %>  
+  <table class="table">
     <thead>
       <tr>
         <th>画像</th>
@@ -32,14 +36,18 @@
         <tr>
           <td>
             <%= link_to public_car_path(car.id) do %>
-              <%= image_tag car.get_car_image(100,100) %>
+              <%= image_tag car.get_car_image(350,150) %>
             <% end %>
           </td>  
-          <td><%= car.name %></td>  
-          <td><%= link_to "編集する", edit_public_car_path, class: "btn btn-success" %></td>
+          <td><%= car.name %></td>
+          <% if car.menber == current_menber %>
+            <td><%= link_to "編集する", edit_public_car_path, class: "btn btn-success" %></td>
+          <% end %>  
         </tr>
       </tbody>
     <% end %>  
   </table>
-  <%= link_to "登録する", new_public_car_path, class: "btn btn-primary" %>
+  <% if @menber == current_menber %>
+    <%= link_to "登録する", new_public_car_path, class: "btn btn-primary" %>
+  <% end %>  
 </div>

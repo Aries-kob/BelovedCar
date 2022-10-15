@@ -12,14 +12,14 @@
         <tr>
           <td>
             <%= link_to public_car_path(car.id) do %>
-              <%= image_tag car.car_image %>
+              <%= image_tag car.get_car_image(200,200) %>
             <% end %>
         </td>
         <td>
           <%= car.name %>    
         </td>
         <td>
-          <%= link_to car.menber.name, public_menber_path(car.menber.id) %>   
+          <%= link_to car.menber.nickname, public_menber_path(car.menber.id) %>   
         </td>
         </tr>
       <% end %>    

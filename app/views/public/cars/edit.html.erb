@@ -24,13 +24,13 @@
         </tr>
         <tr class="form-group">
           <td>
-            <h6>説明</h6>  
+            <h6>紹介/こだわりポイント</h6>  
           </td>
           <td><%= f.text_area :introduction %></td>
         </tr>
         <tr>
           <td>
-            <h6>ジャンル</h6>  
+            <h6>タグ</h6>  
           </td>
           <td>
             <%= collection_check_boxes(:car, :genre_ids, Genre.all, :id, :name) do |genre| %>

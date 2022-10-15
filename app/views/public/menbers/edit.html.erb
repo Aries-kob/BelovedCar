@@ -2,6 +2,10 @@
   <h6>登録内容編集</h6>
   <%= form_with model: @menber, url: public_menber_path, method: :patch do |f| %>
     <div class="form-group">
+      <h6>プロフィール画像</h6>
+      <%= f.file_field :profile_image, accept: "image/*" %>
+    </div>
+    <div class="form-group">
       <%= f.label :name, '名前' %>
       <%= f.text_field :name %>
     </div>

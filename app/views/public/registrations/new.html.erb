@@ -1,41 +1,38 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2>新規登録</h2>
+    <%= form_with model: @menber, url: menber_registration_path do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
+        <div class="field row mb-2">
+          <%= f.label :name, '名前', class: "col-form-label col-lg-2" %>
+          <%= f.text_field :name, autfocus: true, autocomplete: "name", class: "col-lg-3 form-control-sm" %>
+        </div>
+        <div class="field row mb-2">
+          <%= f.label :nickname, 'ニックネーム', class: "col-form-label col-lg-2" %>
+          <%= f.text_field :nickname, autfocus: true, autocomplete: "nickname", class: "col-lg-3 form-control-sm" %>
+        </div>
+        <div class="field row mb-2">
+          <%= f.label :area, '住んでる地域', class: "col-lg-2" %>
+          <%= f.select :area, Menber.areas.keys, {}, {class: 'hoge col-lg-1 form-control-sm'} %>
+        </div>
+        <div class="field row mb-2">
+          <%= f.label :email, class: "col-form-label col-lg-2" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-lg-3 form-control-sm" %>
+        </div>
+        <div class="field row md-2">
+          <%= f.label :password, "パスワード", class: "col-form-label col-lg-2" %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder:"6文字以上", class: "col-lg-3 form-control-sm" %>
+        </div>
 
-<%= form_with model: @menber, url: menber_registration_path do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+        <div class="field row">
+          <%= f.label :password_confirmation, "パスワード(確認用)", class: "col-form-label col-lg-2" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-lg-3 form-control-sm" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :name, '名前' %>
-    <%= f.text_field :name, autfocus: true, autocomplete: "name" %>
-  </div>
-  <div class="field">
-    <%= f.label :nickname, 'ニックネーム' %>
-    <%= f.text_field :nickname, autfocus: true, autocomplete: "nickname" %>
-  </div>
-  <div class="field">
-    <%= f.label :area, '住んでる地域' %>
-    <%= f.select :area, Menber.areas.keys, {}, {class: 'hoge'} %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="actions">
+          <%= f.submit "Sign up" %>
+        </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+  <%= render "public/shared/links" %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>

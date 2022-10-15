@@ -27,10 +27,12 @@ class Public::CarsController < ApplicationController
 
   def edit
     @car = Car.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
     @car = Car.find(params[:id])
+    @genres = Genre.all
     @car.update(car_params)
     redirect_to public_car_path(@car.id)
   end
