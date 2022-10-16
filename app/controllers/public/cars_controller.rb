@@ -28,6 +28,11 @@ class Public::CarsController < ApplicationController
   def edit
     @car = Car.find(params[:id])
     @genres = Genre.all
+    if @car.menber == current_menber
+      render "edit"
+    else
+      redirect_to public_cars_path
+    end  
   end
 
   def update
@@ -42,8 +47,8 @@ class Public::CarsController < ApplicationController
     if @car.destroy
       redirect_to public_cars_path
     else
-      render :show
-    end
+      render :shoe
+    end  
   end
   
   private

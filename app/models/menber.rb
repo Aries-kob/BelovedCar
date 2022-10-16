@@ -33,5 +33,26 @@ class Menber < ApplicationRecord
     徳島県:36,香川県:37,愛媛県:38,高知県:39,
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46, 
     沖縄県:47
-  }       
+  }
+  
+  private
+  
+  def profile_image_type
+    profile_images.each do |profile_image|
+      if profile_image.blob.content_type.in?(%('image/jpge image/png'))
+        profile_image.purge
+        errors.add(:profile_image, "はjpgeまたはpng形式でアップロードしてください")
+      end
+    end
+  end
+  
+  def profile_image_size
+    profile_images.each do |profile_image|
+      if profile_image.blob.byte_size > 3.megabytes
+        profile_image.purge
+        errors.add(:profile_image, "は1つのファイル3MB以内にしてください")
+      end
+    end
+  end  
+  
 end

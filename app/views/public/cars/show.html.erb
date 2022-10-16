@@ -13,6 +13,6 @@
   </div>
   <% if menber_signed_in? && @menber == current_menber %>
     <%= link_to "編集する", edit_public_car_path, class: "btn btn-primary" %>
-    <%= link_to "削除する", public_car_path(@car), method: :delete, date: { confirm: '本当に消しますか？'}, class: "btn btn-danger" %>
+    <%= link_to "削除する", public_car_path(@car.id), method: :delete, date: { confirm: '本当に消しますか？'}, class: "btn btn-danger" %>
   <% end %>  
 </div>

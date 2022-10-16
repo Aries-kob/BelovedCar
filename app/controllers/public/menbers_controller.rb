@@ -10,7 +10,12 @@ class Public::MenbersController < ApplicationController
   end
     
   def edit
-    @menber = current_menber
+    @menber = Menber.find(params[:id])
+    if @menber == current_menber
+      render "edit"
+    else
+      redirect_to public_menber_path(current_menber)
+    end  
   end
   
   def update
