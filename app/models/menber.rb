@@ -24,9 +24,9 @@ class Menber < ApplicationRecord
   end  
   
   def self.guest
-    find_or_create_by!(name: 'guestmenber' ,email:'guest@example.com') do |menber|
+    find_or_create_by!(name: 'guestmenber' ,email: 'guest@example.com') do |menber|
       menber.password = SecureRandom.urlsafe_base64
-      menber.name = "guestmenber"
+      #menber.name = "guestmenber"
       menber.nickname = "guest"
     end
   end  
