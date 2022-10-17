@@ -21,7 +21,9 @@
     <tr></tr>
   </table>
   <% if @menber == current_menber %>
-    <%= link_to "編集する", edit_public_menber_path, class: "btn btn-success" %>
+    <% if @menber.name != "guestmenber" %>
+      <%= link_to "編集する", edit_public_menber_path, class: "btn btn-success" %>
+    <% end %>  
   <% end %>  
   <table class="table">
     <thead>
@@ -49,6 +51,8 @@
     <% end %>  
   </table>
   <% if @menber == current_menber %>
-    <%= link_to "登録する", new_public_car_path, class: "btn btn-primary" %>
+    <% if @menber.name != "guestmenber" %>
+      <%= link_to "登録する", new_public_car_path, class: "btn btn-primary" %>
+    <% end %>  
   <% end %>  
 </div>

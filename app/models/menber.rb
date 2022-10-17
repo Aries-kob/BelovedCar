@@ -10,6 +10,7 @@ class Menber < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :bords, dependent: :destroy
+  has_many :board_comments, dependent: :destroy
   
   
   
@@ -20,6 +21,14 @@ class Menber < ApplicationRecord
     end
     profile_image
     profile_image.variant(resize_to_limit: [width, height]).processed
+  end  
+  
+  def self.guest
+    find_or_create_by!(name: 'guestmenber' ,email:'guest@example.com') do |menber|
+      menber.password = SecureRandom.urlsafe_base64
+      menber.name = "guestmenber"
+      menber.nickname = "guest"
+    end
   end  
          
   enum area:{

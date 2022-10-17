@@ -1,5 +1,17 @@
 <div class="container">
   <div class="top-img ml-5">
     <%= image_tag 'BRZ-7.jpg', class: 'top' %>      
-  </div>    
+  </div>
+  <% if menber_signed_in? %>
+  <% else %>
+    <div class="row justify-content-center">
+      <%= link_to "新規登録", new_menber_registration_path,  class: "btn btn-info btn-sm btn-bloc mb-3 sing_up" %> 
+    </div>
+    <div class="row justify-content-center">
+      <%= link_to "ログイン", new_menber_session_path, class: "btn btn-info btn-sm btn-bloc mb-3 sign_in" %>  
+    </div>
+    <div class="row justify-content-center">
+      <%= link_to "ゲストログイン(閲覧用)", menbers_guest_sign_in_path, method: :post, class: "btn btn-info btn-sm btn-bloc mb-3 sign_in" %>
+    </div>
+  <% end %>
 </div>

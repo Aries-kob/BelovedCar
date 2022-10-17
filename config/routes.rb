@@ -10,12 +10,22 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
   
+  devise_scope :menber do
+    post 'menbers/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end  
+  
   namespace :public do
-    resources :menbers
+    resources :menbers do
+      get :confirm
+      patch :status
+    end  
   end
   
   namespace :public do
-    resources :boards, only: [:index, :new, :create]
+    resources :boards, only: [:index, :new, :create, :show] do
+      resources :board_comments, only: [:create, :destroy]
+    end  
+    
   end  
   namespace :public do
     resources :rooms
@@ -23,7 +33,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :posts do
      resource :favorites, only: [:create, :destroy]
-     resource :post_comments, only: [:new, :create, :destroy]
+     resources :post_comments, only: [:new, :create, :destroy]
     end 
   end
   namespace :admin do

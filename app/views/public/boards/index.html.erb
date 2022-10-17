@@ -9,7 +9,7 @@
         <%= link_to public_menber_path(board.menber.id) do %>
           <%= image_tag board.menber.get_profile_image(50,50) %>
         <% end %>
-        <%= board.title %>
+        <%= link_to board.title, public_board_path(board.id) %>
       <% end %>    
     </div>      
   </div>    
