@@ -1,5 +1,5 @@
 class Public::MenbersController < ApplicationController
-   before_action :ensure_guest_menber, only[:edit]
+   before_action :ensure_guest_menber, only: [:edit]
     
   def index
     @menbers = Menber.all
@@ -40,5 +40,6 @@ class Public::MenbersController < ApplicationController
       redirect_to public_menber_path(current_menber), notice: 'ゲストユーザーは編集画面へは入れません。'
     end
   end  
+  
   
 end

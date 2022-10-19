@@ -56,5 +56,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :menbers, only: [:index, :show, :edit, :update]
   end
+  
+  namespace :admin do
+    resources :posts, only: [:index, :show, :destroy]
+  end  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

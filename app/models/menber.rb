@@ -30,6 +30,10 @@ class Menber < ApplicationRecord
       menber.nickname = "guest"
     end
   end  
+  
+  def active_for_authentication?
+    super && (status == false)
+  end  
          
   enum area:{
     未選択: 0,

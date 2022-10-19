@@ -44,11 +44,8 @@ class Public::CarsController < ApplicationController
 
   def destroy
     @car = Car.find(params[:id])
-    if @car.destroy
-      redirect_to public_cars_path
-    else
-      render :shoe
-    end  
+    @car.destroy
+    redirect_to public_cars_path
   end
   
   private

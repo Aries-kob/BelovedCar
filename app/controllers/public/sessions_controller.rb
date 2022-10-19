@@ -19,7 +19,7 @@ class Public::SessionsController < Devise::SessionsController
   
   protected
   
-  def reject_customer
+  def reject_menber
     @menber = Menber.find_by(email: params[:menber][:email])
     if @menber
       if @menber.valid_password?(params[:menber][:password]) && (@menber.status == false)

@@ -5,12 +5,18 @@
   </div>
   <div class="row">
     <div>
-      <% @boards.each do |board| %>
-        <%= link_to public_menber_path(board.menber.id) do %>
-          <%= image_tag board.menber.get_profile_image(50,50) %>
-        <% end %>
-        <%= link_to board.title, public_board_path(board.id) %>
-      <% end %>    
+      <table>
+        <% @boards.each do |board| %>
+          <tr>
+            <td>
+              <%= link_to public_menber_path(board.menber.id) do %>
+                <%= image_tag board.menber.get_profile_image(50,50) %>
+              <% end %>
+            </td>
+            <td><%= link_to board.title, public_board_path(board.id) %></td>
+          </tr>
+        <% end %>    
+      </table>
     </div>      
   </div>    
 </div>

@@ -4,6 +4,10 @@ class Post < ApplicationRecord
     has_many :favorites, dependent: :destroy
     has_many :post_comments, dependent: :destroy
     
+    validates :title, presence: true, length: { maximum: 40 }
+    validates :introduction, presence: true, length: {maximum: 100 }
+    validates :post_image, presence: true
+    
     def favorited_by?(menber)
     favorites.exists?(menber_id: menber.id)
     end
