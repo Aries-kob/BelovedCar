@@ -1,7 +1,7 @@
 <header class="border-bottom border-dark">
   <div class="container">
     <nav class="navber navbar-expand-lg row">
-      <div class="col log_img">
+      <div class="col logo_img">
         <%= link_to root_path do %>
           <%= image_tag 'Beloved_car.jpg', style: "height: 120px; width: 200px;" %>
         <% end %>
@@ -9,6 +9,7 @@
       <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
           <li><%= link_to "会員一覧", admin_menbers_path, class: "btn border roundbed ml-5" %></li>
+          <li><%= link_to "乗り物一覧", admin_cars_path, class: "btn border roundbed ml-5" %></li>
           <li><%= link_to "ジャンル", admin_genres_path, class: "btn border roundbed ml-5" %></li>
           <li><%= link_to "投稿一覧", admin_posts_path, class: "btn border roundbed ml-5" %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn border roundbed ml-5" %></li>

@@ -11,18 +11,12 @@
           <div class="col-10">
             <p class="card-text"><%= @post.introduction %></p>
           </div>
-          <div class="col", id="favorite_buttons_<%= @post.id %>">
-            <%= render 'public/favorites/favorite', post: @post %>
-          </div>
           <div>
             <%= "#{@post.post_comments.count} コメント数  " %>
-            <%=  link_to "💬", new_public_post_post_comment_path(@post.id) %>
           </div>
-          <% if @post.menber_id = current_menber.id %>
-            <div>
-              <%= link_to "削除", public_post_path(@post.id), method: :delete, "data-confirm" => "投稿を消しますか？", class: "btn btn-denger" %>
-            </div>
-          <% end %>  
+          <div>
+            <%= link_to "削除", admin_post_path(@post.id), method: :delete, "data-confirm" => "強制削除しますか？", class: "btn btn-denger" %>
+          </div>
         </div>  
       </div>
   </div>

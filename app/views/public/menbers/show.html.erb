@@ -44,7 +44,7 @@
           <td><%= car.name %></td>
           <% if car.menber == current_menber %>
             <td><%= link_to "編集する", edit_public_car_path(car.id), class: "btn btn-success" %></td>
-            <td><%= link_to "削除する", public_car_path(car.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
+            <td><%= link_to "削除する", public_car_path(car.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" %></td>
           <% end %>  
         </tr>
       </tbody>

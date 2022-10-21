@@ -1,0 +1,36 @@
+<div class="contaner">
+  <div class="row justify-content-center">
+    <%= @board.title %> 
+  </div>
+  <%= form_with model: @board_comment, url: public_board_board_comments_path(@board.id), method: :post do |f| %>
+    <div class="form row justify-content-center mb-5">
+      <%= f.text_area :body, class: "form-control col-lg-4" %>  
+    </div>
+    <div class="row justify-content-center">
+      <%= f.submit 'コメントする', class: "btn btn-sm btn-success" %>
+    </div>
+  <% end %>  
+  <% @board.board_comments.each do |board_comment| %>
+    <table class="table justify-content-center">
+        <tr>
+          <td class="col-lg-1">
+            <%= l board_comment.created_at %>  
+          </td>
+          <td class="col-lg-1">
+            <%= link_to public_menber_path(board_comment.menber) do %>
+              <%= image_tag board_comment.menber.get_profile_image(50,50) %>
+              <%= link_to board_comment.menber.nickname %>
+            <% end %>  
+          </td>
+          <td class="col-lg-6">
+            <%= board_comment.body %>  
+          </td>
+          <% if board_comment.menber == current_menber %>
+            <td class="col-lg-4">
+              <%= link_to '削除する', public_board_board_comment_path(@board, board_comment), method: :delete, class: "btn btn-sm btn-danger" %>
+            </td>
+          <% end %>  
+        </tr>
+    </table>  
+  <% end %>  
+</div>

@@ -48,10 +48,10 @@ Rails.application.routes.draw do
     resources :cars 
   end
   namespace :admin do
-    resources :cars, only: [:index, :show, :edit, :update]
+    resources :cars, only: [:index, :show, :edit, :update, :destroy]
   end
   namespace :admin do
-    resources :genres, only: [:create, :index, :edit, :update]
+    resources :genres, only: [:create, :index, :edit, :update, :destroy]
   end
   namespace :admin do
     resources :menbers, only: [:index, :show, :edit, :update]
@@ -60,5 +60,12 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :posts, only: [:index, :show, :destroy]
   end  
+  
+  namespace :admin do
+    resources :boards, only: [:index, :show, :edit, :destroy] do
+      resources :board_comments, only: [:create, :destroy]
+    end  
+  end  
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

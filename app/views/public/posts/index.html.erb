@@ -19,7 +19,7 @@
             </p>
             <p class="card-text"><%= post.introduction %></p>
           </div>
-          <div class="col">
+          <div class="col", id="favorite_buttons_<%= post.id %>">
             <%= render 'public/favorites/favorite', post: post %>  
           </div>
           <div>

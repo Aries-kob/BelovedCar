@@ -1,17 +1,17 @@
 <div class="container">
-  <div class="top-img ml-5">
-    <%= image_tag 'BRZ-7.jpg', class: 'top' %>      
+  <div class="row justify-content-center">
+    <%= image_tag 'BRZ-7.jpg', class: 'top mb-5' %>      
   </div>
   <% if menber_signed_in? %>
   <% else %>
     <div class="row justify-content-center">
-      <%= link_to "新規登録", new_menber_registration_path,  class: "btn btn-primary btn-sm btn-bloc mb-3 sing_up model" %> 
+      <%= link_to "新規登録", new_menber_registration_path,  class: "btn btn-primary btn-sm btn-block mb-3 sing_up col-lg-9" %> 
     </div>
     <div class="row justify-content-center">
-      <%= link_to "ログイン", new_menber_session_path, class: "btn btn-success btn-sm btn-bloc mb-3 sign_in" %>  
+      <%= link_to "ログイン", new_menber_session_path, class: "btn btn-success btn-sm btn-block mb-3 sign_in col-lg-9" %>  
     </div>
     <div class="row justify-content-center">
-      <%= link_to "ゲストログイン(閲覧用)", menbers_guest_sign_in_path, method: :post, class: "btn btn-info btn-sm btn-bloc mb-3 sign_in" %>
+      <%= link_to "ゲストログイン(閲覧用)", menbers_guest_sign_in_path, method: :post, class: "btn btn-info btn-sm btn-block mb-3 sign_in col-lg-9" %>
     </div>
   <% end %>
 </div>
