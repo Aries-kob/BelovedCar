@@ -25,11 +25,9 @@
           <td class="col-lg-6">
             <%= board_comment.body %>  
           </td>
-          <% if board_comment.menber == current_menber %>
             <td class="col-lg-4">
-              <%= link_to '削除する', public_board_board_comment_path(@board, board_comment), method: :delete, class: "btn btn-sm btn-danger" %>
+              <%= link_to '削除する', admin_board_board_comment_path(@board, board_comment), method: :delete, class: "btn btn-sm btn-danger" %>
             </td>
-          <% end %>  
         </tr>
     </table>  
   <% end %>  
