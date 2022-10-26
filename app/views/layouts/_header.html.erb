@@ -1,32 +1,32 @@
 <header class="shadow-sm">
   <nav class="navber navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand p-3" href="/"><%= image_tag('Beloved_car.jpg', :size => '150x120') %></a>
+      <a class="navbar-brand p-3 col-sm-10 col-lg-auto" href="/"><%= image_tag('Beloved_car.jpg', :size => '150x130') %></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>  
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> 
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
-              <li><%= link_to "会員一覧", admin_menbers_path, class: "btn border roundbed ml-5" %></li>
-              <li><%= link_to "乗り物一覧", admin_cars_path, class: "btn border roundbed ml-5" %></li>
-              <li><%= link_to "ジャンル", admin_genres_path, class: "btn border roundbed ml-5" %></li>
-              <li><%= link_to "投稿一覧", admin_posts_path, class: "btn border roundbed ml-5" %></li>
-              <li><%= link_to "掲示板一覧", admin_boards_path, class: "btn border roundbed ml-5" %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "会員一覧", admin_menbers_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "乗り物一覧", admin_cars_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "ジャンル", admin_genres_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "投稿一覧", admin_posts_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "掲示板一覧", admin_boards_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn border roundbed ml-5" %></li>
             <% elsif menber_signed_in? %>
-              <li><%= link_to "マイページ", public_menber_path(current_menber), class: "btn border roundbed ml-5" %> </li>
-              <li><%= link_to "愛車一覧", public_cars_path, class: "btn border roundbed ml-5" %></li>
-              <li><%= link_to "投稿一覧", public_posts_path, class: "btn border roundbed ml-5" %></li>
-              <li><%= link_to "新規投稿", new_public_post_path, class: "btn border roundbed ml-5" %></li>
-              <li><%= link_to "掲示板一覧", public_boards_path, class: "btn border roundbed ml-5" %></li>
-              <li><%= link_to "ログアウト",destroy_menber_session_path,method: :delete, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "マイページ", public_menber_path(current_menber), class: "btn border roundbed ml-5" %> </li>
+              <li class="nav-item text-right mb-2"><%= link_to "愛車一覧", public_cars_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "投稿一覧", public_posts_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "新規投稿", new_public_post_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "掲示板一覧", public_boards_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "ログアウト",destroy_menber_session_path,method: :delete, class: "btn border roundbed ml-5" %></li>
             <% else %>
-              <li class="nav-item text-right"><%= link_to "愛車一覧", public_cars_path, class: "btn border roundbed ml-5" %></li>
-              <li class="nav-item text-right"><%= link_to "投稿一覧", public_posts_path, class: "btn border roundbed ml-5" %></li>
-              <li class="nav-item text-right"><%= link_to "ログイン", new_menber_session_path, class: "btn border roundbed ml-5" %></li>
-              <li class="nav-item text-right"><%= link_to "新規登録", new_menber_registration_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "愛車一覧", public_cars_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "投稿一覧", public_posts_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "ログイン", new_menber_session_path, class: "btn border roundbed ml-5" %></li>
+              <li class="nav-item text-right mb-2"><%= link_to "新規登録", new_menber_registration_path, class: "btn border roundbed ml-5" %></li>
             <% end %>   
           </ul>
         </div>

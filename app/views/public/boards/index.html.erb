@@ -8,6 +8,7 @@
       <table>
         <% @boards.each do |board| %>
           <tr>
+            <td><%= l board.created_at %></td>
             <td>
               <%= link_to public_menber_path(board.menber.id) do %>
                 <%= image_tag board.menber.get_profile_image(50,50) %>
@@ -15,7 +16,7 @@
             </td>
             <td><%= link_to board.title, public_board_path(board.id) %></td>
           </tr>
-        <% end %>    
+        <% end %>  
       </table>
     </div>      
   </div>    

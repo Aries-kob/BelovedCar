@@ -1,6 +1,6 @@
 class Public::BoardsController < ApplicationController
     def index
-      @boards = Board.all
+      @boards = Board.all.order(created_at: :desc)
     end  
     
     def new
