@@ -14,10 +14,10 @@
         </div>
       </div>  
   </div>
-  <div class="row ml-5">
+  <div class="row ml-5 justify-content-center">
     <%= form_with model: @post_comment, url: public_post_post_comments_path, method: :post do |f| %>
-      <div class="form">
-        <%= f.text_area :comment, class: "fprm-control" %>    
+      <div class="form-group">
+        <%= f.text_area :comment, class: "fprm-control mt-5", size: "40x5" %>    
       </div>
       <%= f.submit 'コメントする', class: "btn btn-sm btn-success" %>
     <% end %>
