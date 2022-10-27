@@ -13,7 +13,8 @@
             <td><%= link_to board.title, admin_board_path(board.id) %></td>
           </tr>
         <% end %>    
+      <%= paginate @boards %>
       </table>
-    </div>      
+    </div>
   </div>    
 </div>

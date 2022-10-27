@@ -16,8 +16,9 @@
             </td>
             <td><%= link_to board.title, public_board_path(board.id) %></td>
           </tr>
-        <% end %>  
+        <% end %> 
       </table>
+        <%= paginate @boards %>
     </div>      
   </div>    
 </div>
