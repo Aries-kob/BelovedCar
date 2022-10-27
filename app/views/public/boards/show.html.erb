@@ -19,7 +19,7 @@
           <td class="col-lg-1">
             <%= link_to public_menber_path(board_comment.menber) do %>
               <%= image_tag board_comment.menber.get_profile_image(50,50) %>
-              <%= link_to board_comment.menber.nickname %>
+              <%= link_to board_comment.menber.nickname, public_menber_path %>
             <% end %>  
           </td>
           <td class="col-lg-6">
@@ -33,4 +33,4 @@
         </tr>
     </table>  
   <% end %>  
-</div>
+</div> 
