@@ -18,12 +18,12 @@
           <%= f.label :email, class: "col-form-label col-lg-2" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-lg-3 form-control-sm" %>
         </div>
-        <div class="field row md-2">
+        <div class="field row mb-2">
           <%= f.label :password, "パスワード", class: "col-form-label col-lg-2" %>
           <%= f.password_field :password, autocomplete: "new-password", placeholder:"6文字以上", class: "col-lg-3 form-control-sm" %>
         </div>
 
-        <div class="field row">
+        <div class="field row mb-2">
           <%= f.label :password_confirmation, "パスワード(確認用)", class: "col-form-label col-lg-2" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-lg-3 form-control-sm" %>
         </div>

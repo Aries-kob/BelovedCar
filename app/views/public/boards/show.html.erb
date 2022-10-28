@@ -12,21 +12,21 @@
   <% end %>  
   <% @board.board_comments.each do |board_comment| %>
     <table class="table justify-content-center">
-        <tr>
-          <td class="col-lg-1">
+        <tr class="row">
+          <td class="col-lg-1 col-sm-1">
             <%= l board_comment.created_at %>  
           </td>
-          <td class="col-lg-1">
+          <td class="col-lg-1 col-sm-1">
             <%= link_to public_menber_path(board_comment.menber) do %>
               <%= image_tag board_comment.menber.get_profile_image(50,50) %>
               <%= link_to board_comment.menber.nickname, public_menber_path %>
             <% end %>  
           </td>
-          <td class="col-lg-6">
+          <td class="col-lg-6 col-sm-6">
             <%= board_comment.body %>  
           </td>
           <% if board_comment.menber == current_menber %>
-            <td class="col-lg-4">
+            <td class="col-lg-4 col-sm-4">
               <%= link_to '削除する', public_board_board_comment_path(@board, board_comment), method: :delete, class: "btn btn-sm btn-danger" %>
             </td>
           <% end %>  

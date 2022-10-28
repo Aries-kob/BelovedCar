@@ -1,6 +1,6 @@
 <div class="container">
   <div>
-    <h6>愛車編集</h6>
+    <h5>愛車編集</h6>
     <% if @car.errors.any? %>
       <ul>
         <% @car.errors.full_messages.each do |message| %>
@@ -10,29 +10,29 @@
     <% end %>
     <%= form_with model: @car, url: public_car_path, method: :patch do |f| %>
       <table class= "table table-borderless">
-        <tr class="form-group">
-          <td>
+        <tr class="form-group row">
+          <td class="col-sm-12 col-lg-1">
             <h6>画像</h6>  
           </td>
-          <td><%= f.file_field :car_image, accept: "image/*" %></td>
+          <td class="col-sm-12"><%= f.file_field :car_image, accept: "image/*" %></td>
         </tr>
-        <tr class="form-group">
-          <td>
+        <tr class="form-group row">
+          <td class="col-sm-12 col-lg-6">
             <h6>車名</h6>  
           </td>
-          <td><%= f.text_field :name %></td>
+          <td class="col-sm-12"><%= f.text_field :name %></td>
         </tr>
-        <tr class="form-group">
-          <td>
+        <tr class="form-group row">
+          <td class="col-sm-12">
             <h6>紹介/こだわりポイント</h6>  
           </td>
-          <td><%= f.text_area :introduction %></td>
+          <td class="col-sm-12"><%= f.text_area :introduction %></td>
         </tr>
-        <tr>
-          <td>
+        <tr class="row">
+          <td class="col-sm-12">
             <h6>タグ</h6>  
           </td>
-          <td>
+          <td class="col-sm-7">
             <%= collection_check_boxes(:car, :genre_ids, Genre.all, :id, :name) do |genre| %>
               <%= genre.label do %>
                 <%= genre.check_box %>
