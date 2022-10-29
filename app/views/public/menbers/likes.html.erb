@@ -1,6 +1,6 @@
 <div class="card-list-container">
-  <h5>投稿一覧</h5>
-  <% @posts.each do |post| %>
+  <h5>いいねした投稿一覧</h5>
+  <% @like_posts.each do |post| %>
     <div class="card mx-auto mt-4 shadow-lg" style="width:40rem;">
       <%= link_to public_post_path(post.id) do %>
         <%= image_tag post.post_image, class:"card-img-top"; %>
@@ -30,5 +30,4 @@
       </div>
     </div>
   <% end %>  
-  <%= paginate @posts %>
 </div>

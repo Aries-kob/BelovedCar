@@ -48,6 +48,11 @@ class Public::CarsController < ApplicationController
     redirect_to public_cars_path
   end
   
+   def search
+    @cars = Car.looks(params[:search], params[:word])
+    render "index"
+   end  
+  
   private
   
   def car_params

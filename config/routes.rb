@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   
   namespace :public do
     resources :menbers do
+      member do
+        get :likes
+      end
       get :confirm
       patch :status
     end  
@@ -65,6 +68,9 @@ Rails.application.routes.draw do
     resources :boards, only: [:index, :show, :edit, :destroy] do
       resources :board_comments, only: [:create, :destroy]
     end  
+  end  
+  namespace :public do
+    get "search" => "cars#search"
   end  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

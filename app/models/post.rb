@@ -12,6 +12,20 @@ class Post < ApplicationRecord
     favorites.exists?(menber_id: menber.id)
     end
     
+    def self.looks(search, word)
+      if search == "perfect_match"
+        @post = Post.where("title LIKE?", "#{word}")
+      elsif search == "forward_match"
+        @post = Post.where("title LIKE?","#{word}%")
+      elsif search == "backward_match"
+        @post = Post.where("title LIKE?","%#{word}")
+      elsif search == "partial_match"
+        @post = Post.where("title LIKE?","%#{word}%")
+      else
+        @post = Post.all
+      end
+    end
+    
     private
     
     def post_image_type

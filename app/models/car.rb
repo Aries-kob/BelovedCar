@@ -12,6 +12,20 @@ class Car < ApplicationRecord
     end  
     
     
+    def self.looks(search, word)
+      if search == "perfect_match"
+        @cars = Car.where("name LIKE?","#{word}")
+      elsif search == "forward_match"
+        @cars = Car.where("name LIKE?","#{word}%")
+      elsif search == "backward_match"
+        @cars = Car.where("name LIKE?","%#{word}")
+      elsif search == "partial_match"
+        @cars = Car.where("name LIKE?","%#{word}%")
+      else
+        @cars = Car.all
+      end
+    end
+    
     private
     
     def car_image_type

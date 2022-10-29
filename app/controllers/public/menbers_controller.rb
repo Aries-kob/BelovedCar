@@ -28,6 +28,13 @@ class Public::MenbersController < ApplicationController
   def destroy
   end
   
+  def likes
+    @menber = Menber.find(params[:id])
+    favorite = Favorite.where(menber_id: @menber.id).pluck(:post_id)
+    @like_posts = Post.find(favorite)
+  end
+
+  
   private
   
   def menber_params

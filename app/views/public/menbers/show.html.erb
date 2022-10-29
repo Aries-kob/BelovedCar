@@ -22,6 +22,7 @@
   </table>
   <% if @menber == current_menber %>
     <% if @menber.name != "guestmenber" %>
+      <%= link_to "いいねした投稿", likes_public_menber_path(@menber), class: "btn btn-info" %>
       <%= link_to "編集する", edit_public_menber_path, class: "btn btn-success" %>
     <% end %>  
   <% end %>
