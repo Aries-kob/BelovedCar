@@ -24,7 +24,8 @@
     <% if @menber.name != "guestmenber" %>
       <%= link_to "編集する", edit_public_menber_path, class: "btn btn-success" %>
     <% end %>  
-  <% end %>  
+  <% end %>
+  <div class="table-responsive">
   <table class="table">
     <thead>
       <tr>
@@ -36,20 +37,23 @@
     <% @cars.each do |car| %>
       <tbody>
         <tr>
-          <td>
+          <td style="width: 10%">
             <%= link_to public_car_path(car.id) do %>
-              <%= image_tag car.get_car_image(350,150) %>
+              <%= image_tag car.car_image, size: "70x70" %>
             <% end %>
           </td>  
-          <td><%= car.name %></td>
+          <td style="width: 40%"><%= car.name %></td>
           <% if car.menber == current_menber %>
-            <td><%= link_to "編集する", edit_public_car_path(car.id), class: "btn btn-success" %></td>
-            <td><%= link_to "削除する", public_car_path(car.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" %></td>
+            <td style="width: 50%">
+              <%= link_to "編集", edit_public_car_path(car.id), class: "btn btn-sm btn-success mb-2" %><br>
+              <%= link_to "削除", public_car_path(car.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %>
+            </td>
           <% end %>  
         </tr>
       </tbody>
     <% end %>  
   </table>
+  </div>
   <% if @menber == current_menber %>
     <% if @menber.name != "guestmenber" %>
       <%= link_to "登録する", new_public_car_path, class: "btn btn-primary" %>
