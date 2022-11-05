@@ -9,7 +9,15 @@
             <%= @post.menber.nickname %>
           </div>
           <div class="col-10">
+            <p class="card-title">
+              <%= link_to(public_post_path(@post.id), class:"text-dark")  do %>
+                <strong><%= @post.title %></strong>
+              <% end %>  
+            </p>
             <p class="card-text"><%= @post.introduction %></p>
+            <% @post.tags.each do |tag| %>
+              <span class="label"><%= tag.name %></span>
+            <% end %>
           </div>
           <div class="col", id="favorite_buttons_<%= @post.id %>">
             <%= render 'public/favorites/favorite', post: @post %>

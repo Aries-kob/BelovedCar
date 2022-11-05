@@ -18,6 +18,9 @@
               <% end %>  
             </p>
             <p class="card-text"><%= post.introduction %></p>
+            <% post.tags.each do |tag| %>
+              <span class="label"><%= tag.name %></span>
+            <% end %>
           </div>
           <div class="col", id="favorite_buttons_<%= post.id %>">
             <%= render 'public/favorites/favorite', post: post %>  
