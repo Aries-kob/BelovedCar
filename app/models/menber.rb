@@ -11,7 +11,8 @@ class Menber < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :bords, dependent: :destroy
   has_many :board_comments, dependent: :destroy
-  
+  has_many :chat_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
   
   
   def get_profile_image(width, height)
