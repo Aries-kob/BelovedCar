@@ -39,9 +39,6 @@ Rails.application.routes.draw do
      resources :post_comments, only: [:new, :create, :destroy]
     end 
   end
-  namespace :admin do
-    root to: "homes#top"
-  end
   namespace :public do
     root to: "homes#top"
     get 'homes/about', as: 'about'
@@ -49,6 +46,15 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :cars 
+  end
+  
+  namespace :public do
+    get 'chat/:id', to: 'chats#show', as: 'chat'
+    resources :chats, only: [:create]
+  end  
+  
+  namespace :admin do
+    root to: "homes#top"
   end
   namespace :admin do
     resources :cars, only: [:index, :show, :edit, :update, :destroy]
