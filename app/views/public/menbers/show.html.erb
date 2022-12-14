@@ -5,7 +5,7 @@
     <h5><%= "#{@menber.nickname} さんの詳細ページ" %></h5>
   <% end %> 
   <% if current_menber != @menber %>
-    <%= link_to 'Begin Chat', public_chat_path(@menber.id) %>
+    <!--%= link_to 'Begin Chat', public_chat_path(@menber.id) %-->
   <% end %>  
   <%= image_tag @menber.get_profile_image(400,400) %>
   <table class= "table">
