@@ -2,3 +2,19 @@ ja:
   time:
     formats:
       default : "%Y/%m/%d %H:%M:%S"
+      
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+      post:
+        title: タイトル
+        introduction: 本文
+        post_image: 画像
+    
+    models:    
+      car: 愛車
+    attributes:
+      car:
+        car_image: 愛車画像
+        name: 名前
