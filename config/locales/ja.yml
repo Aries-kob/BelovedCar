@@ -5,23 +5,17 @@ ja:
       
   activerecord:
     models:
-      Post: "投稿"
+      post: 投稿
+      car: 愛車
+      menber: 会員
     attributes:
       post:
-        title: "タイトル"
-        introduction: "本文"
-        post_image: "画像"
-    
-    models:    
-      car: 愛車
-    attributes:
+        title: タイトル
+        introduction: 本文
+        post_image: 画像
       car:
         car_image: 愛車画像
         name: 名前
-        
-    models:
-      menber: 会員
-    attributes:
       menber:
         email: メールアドレス
         password: パスワード
